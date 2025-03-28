@@ -1,0 +1,12 @@
+@import "tailwindcss";
+@import "./fontdeclare.css";
+@import "./vars.css";
+
+@theme {
+    --default-font-family: "OpenSans", "sans-serif";
+}
+
+body {
+    background-color: var(--bgPrimary);
+    color: var(--txtPrimary);
+}
