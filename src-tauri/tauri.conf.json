@@ -18,8 +18,9 @@
         "minWidth": 800,
         "minHeight": 600,
         "decorations": false,
-        "shadow": false
-      }
+        "shadow": false,
+        "url": "/"
+      } 
     ],
     "security": {
       "csp": null

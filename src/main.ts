@@ -1,15 +1,17 @@
 import { createApp } from "vue";
 import App from "./App.vue";
 import "./static/tailwind.css";
-import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
+import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Startup from "./routes/Startup.vue";
+import Home from "./routes/Home.vue";
 
 const routes: RouteRecordRaw[] = [
-    { path: "/", component: Startup }
+    { path: "/", component: Home },
+    { path: "/startup", component: Startup }
 ]
 
 const router = createRouter({
-    history: createWebHashHistory(),
+    history:  createWebHistory(),
     routes: routes,
 })
 

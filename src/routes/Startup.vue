@@ -2,15 +2,22 @@
 import {openUrl} from "@tauri-apps/plugin-opener"
 import {Icon} from "@iconify/vue"
 import {ref} from "vue";
+import { useRouter } from "vue-router";
+import { Button } from "@/components/ui/button";
 
 const currentPage = ref(0);
 const incrementPage = () => currentPage.value += 1;
 const decrementPage = () => currentPage.value -= 1;
+const router = useRouter();
+
+const skipNonsense = () => {
+  router.replace("/configure")
+}
 
 </script>
 <template>
     <Transition name="slide-fade">
-        <div class="w-screen h-screen pt-6"> 
+        <div class="w-screen h-screen pt-9"> 
             <div class="flex flex-col items-center justify-center h-full" v-if="currentPage === 0">
                 <h1 class="text-3xl font-bold">Welcome to StarshotOCR</h1>
                 <p class="mb-2">An open-source, powerful, and intelligent OCR application powered by Tesseract.</p>
@@ -19,9 +26,10 @@ const decrementPage = () => currentPage.value -= 1;
                     <button class="cursor-pointer" @click="async () => await openUrl('https://github.com/tesseract-ocr/tesseract.git')"><Icon icon="proicons:google-2" /></button>
                 </span>
 
-                <button class="py-1 px-2 mb-2 border-[rgba(255,255,255,0.5)] rounded-sm border-1 cursor-pointer hover:border-[rgba(255,255,255,1)] transition-[border-color]" @click="incrementPage">Get Started</button>
+                <Button class="mb-2 cursor-pointer" @click="incrementPage">Get Started</Button>  
                 <p class="text-xs">— or —</p>
-                <button class="py-1 px-2 rounded-sm text-xs cursor-pointer hover:border-[rgba(255,255,255,1)] transition-[border-color]">skip this nonsense</button>  
+                <Button class="text-xs font-light" variant="ghost" @click="skipNonsense">skip this nonsense</Button> 
+                <!-- <button class="py-1 px-2 rounded-sm text-xs cursor-pointer hover:border-[rgba(255,255,255,1)] transition-[border-color]" @click="skipNonsense">skip this nonsense</button>   -->
             </div>
             <div v-if="currentPage === 1">
                 <h1>Select your page</h1>

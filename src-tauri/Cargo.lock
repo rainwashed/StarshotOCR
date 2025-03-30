@@ -745,6 +745,15 @@ dependencies = [
 ]
 
 [[package]]
+name = "directories"
+version = "6.0.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "16f5094c54661b38d03bd7e50df373292118db60b585c08a411c6d840017fe7d"
+dependencies = [
+ "dirs-sys",
+]
+
+[[package]]
 name = "dirs"
 version = "6.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3568,6 +3577,7 @@ checksum = "a8f112729512f8e442d81f95a8a7ddf2b7c6b8a1a6f509a95864142b30cab2d3"
 name = "starshotOCR"
 version = "0.1.0"
 dependencies = [
+ "directories",
  "serde",
  "serde_json",
  "tauri",
